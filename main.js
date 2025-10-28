@@ -11,6 +11,7 @@ class Tree {
     this.root = this.buildTree(array);
   }
 
+  // Takes an array of data and turns into BST (Balanced Binary Search Tree)
   buildTree(array) {
     if (array.length === 0) return null;
 
@@ -33,6 +34,13 @@ class Tree {
     return new Node(root, leftTree, rightTree);
   }
 
+  // Insert the given value in the tree
+  insert(value) {}
+
+  // Delete the given value in the tree
+  deleteItem(value) {}
+
+  // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
 
@@ -49,4 +57,4 @@ class Tree {
 }
 
 const myTree = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
-myTree.prettyPrint();
+myTree.prettyPrint(myTree.root);
