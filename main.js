@@ -43,7 +43,7 @@ class Tree {
     console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
 
     if (node.left !== null) {
-      prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+      this.prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
     }
   }
 }
