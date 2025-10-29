@@ -89,7 +89,7 @@ export class Tree {
       successor = successor.left;
     }
 
-    // Change node data with successor data
+    // Change node data with successor data and delete right subtree successor
     node.data = successor.data;
     node.right = this.#deleteNode(node.right, successor.data);
     return node;
