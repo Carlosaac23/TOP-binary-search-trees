@@ -31,7 +31,25 @@ export class Tree {
   }
 
   // Insert the given value in the tree
-  insert(value) {}
+  insert(value) {
+    if (this.root === null) {
+      this.root = new Node(value);
+    } else {
+      this.#insertNode(this.root, value);
+    }
+  }
+
+  #insertNode(node, value) {
+    if (node === null) return new Node(value);
+
+    if (value < node.data) {
+      node.left = this.#insertNode(node.left, value);
+    } else {
+      node.right = this.#insertNode(node.right, value);
+    }
+
+    return node;
+  }
 
   // Delete the given value in the tree
   deleteItem(value) {}
