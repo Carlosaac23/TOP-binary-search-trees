@@ -1,6 +1,8 @@
 import { Tree } from './bst.js';
+import createArrayWithRandomNumbers from './helpers/randomNumbers.js';
 
-const myTree = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
+const SIZE = 10;
+const myTree = new Tree(createArrayWithRandomNumbers(SIZE));
 myTree.prettyPrint(myTree.root);
 
 // Insert a value
