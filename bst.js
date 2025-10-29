@@ -23,15 +23,11 @@ export class Tree {
     const mid = Math.floor(orderedArray.length / 2);
     const root = orderedArray[mid];
 
-    // Create left and right arrays
-    const leftArray = orderedArray.slice(0, mid);
-    const rightArray = orderedArray.slice(mid + 1);
+    // Create left and right subtrees
+    const leftSubtree = this.buildTree(orderedArray.slice(0, mid));
+    const rightSubtree = this.buildTree(orderedArray.slice(mid + 1));
 
-    // Create left and right trees
-    const leftTree = this.buildTree(leftArray);
-    const rightTree = this.buildTree(rightArray);
-
-    return new Node(root, leftTree, rightTree);
+    return new Node(root, leftSubtree, rightSubtree);
   }
 
   // Insert the given value in the tree
