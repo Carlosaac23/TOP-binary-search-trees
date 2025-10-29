@@ -95,6 +95,24 @@ export class Tree {
     return node;
   }
 
+  // Return the node with the given value
+  find(value) {
+    if (!value) return null;
+    return this.#findNode(this.root, value);
+  }
+
+  #findNode(node, value) {
+    if (node === null) return null;
+
+    if (value === node.data) {
+      return node;
+    } else if (value < node.data) {
+      return this.#findNode(node.left, value);
+    } else {
+      return this.#findNode(node.right, value);
+    }
+  }
+
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
