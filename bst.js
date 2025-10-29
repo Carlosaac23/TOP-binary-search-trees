@@ -52,7 +52,48 @@ export class Tree {
   }
 
   // Delete the given value in the tree
-  deleteItem(value) {}
+  delete(value) {
+    this.root = this.#deleteNode(this.root, value);
+  }
+
+  #deleteNode(node, value) {
+    if (node === null) return null;
+
+    // Search the node to delete
+    if (value < node.data) {
+      node.left = this.#deleteNode(node.left, value);
+      return node;
+    } else if (value > node.data) {
+      node.right = this.#deleteNode(node.right, value);
+      return node;
+    }
+
+    // Node without children
+    if (node.left === null && node.right === null) {
+      return null;
+    }
+
+    // Node with one child
+    if (node.left === null) {
+      return node.right;
+    }
+
+    if (node.right === null) {
+      return node.left;
+    }
+
+    // Node with two children
+    // Find the successor
+    let successor = node.right;
+    while (successor !== null && successor.left !== null) {
+      successor = successor.left;
+    }
+
+    // Change node data with successor data
+    node.data = successor.data;
+    node.right = this.#deleteNode(node.right, successor.data);
+    return node;
+  }
 
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
