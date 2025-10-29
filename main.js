@@ -6,3 +6,7 @@ myTree.prettyPrint(myTree.root);
 // Insert a value
 myTree.insert(2);
 myTree.prettyPrint(myTree.root);
+
+// Delete a value
+myTree.delete(2);
+myTree.prettyPrint(myTree.root);
