@@ -21,13 +21,13 @@ export class Tree {
 
     // Get the mid index and root element
     const mid = Math.floor(orderedArray.length / 2);
-    const root = orderedArray[mid];
+    const root = new Node(orderedArray[mid]);
 
     // Create left and right subtrees
-    const leftSubtree = this.buildTree(orderedArray.slice(0, mid));
-    const rightSubtree = this.buildTree(orderedArray.slice(mid + 1));
+    root.left = this.buildTree(orderedArray.slice(0, mid));
+    root.right = this.buildTree(orderedArray.slice(mid + 1));
 
-    return new Node(root, leftSubtree, rightSubtree);
+    return root;
   }
 
   // Insert the given value in the tree
