@@ -113,6 +113,26 @@ export class Tree {
     }
   }
 
+  // Method that accepts a callback
+  levelOrderForEach(callback) {
+    if (!callback) throw new Error('A callback is required');
+    if (this.root === null) return;
+
+    const queue = [];
+    queue.push(this.root);
+
+    while (queue.length !== 0) {
+      const firstElement = queue.shift();
+      callback(firstElement);
+      if (firstElement.left) {
+        queue.push(firstElement.left);
+      }
+      if (firstElement.right) {
+        queue.push(firstElement.right);
+      }
+    }
+  }
+
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
