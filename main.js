@@ -29,4 +29,4 @@ console.log(nodes); // [ 70, 66, 95, 43, 69, 78, 96, 19, 77 ]
 // Counting nodes
 let count = 0;
 myTree.levelOrderForEach(node => count++);
-console.log(count); // 10
+console.log(`Total nodes: ${count}`); // 10
