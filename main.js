@@ -1,8 +1,7 @@
 import { Tree } from './bst.js';
-import createArrayWithRandomNumbers from './helpers/randomNumbers.js';
 
-const SIZE = 10;
-const myTree = new Tree(createArrayWithRandomNumbers(SIZE));
+const numbers = [1, 5, 4, 8, 10, 15, 20, 21, 19, 17];
+const myTree = new Tree(numbers);
 myTree.prettyPrint(myTree.root);
 
 // Insert a value
@@ -18,15 +17,18 @@ const node4 = myTree.find(4);
 myTree.prettyPrint(node4);
 
 // Testing levelOrderForEach method
-// Show every node
-myTree.levelOrderForEach(node => console.log(node.data)); // 70, 66, 95, 43, 69, 78, 96, 19, 77
-
-// Save nodes in an array
-const nodes = [];
-myTree.levelOrderForEach(node => nodes.push(node.data));
-console.log(nodes); // [ 70, 66, 95, 43, 69, 78, 96, 19, 77 ]
+// Show every node in an array
+const levelOrderNodes = [];
+myTree.levelOrderForEach(node => levelOrderNodes.push(node.data));
+console.log(levelOrderNodes); // [ 70, 66, 95, 43, 69, 78, 96, 19, 77 ]
 
 // Counting nodes
 let count = 0;
 myTree.levelOrderForEach(node => count++);
 console.log(`Total nodes: ${count}`); // 10
+
+// Testing inOrderForEach method
+// Show every node in an array
+const inOrderNodes = [];
+myTree.inOrderForEach(node => inOrderNodes.push(node.data));
+console.log(inOrderNodes);
