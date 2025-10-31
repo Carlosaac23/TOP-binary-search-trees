@@ -121,7 +121,7 @@ export class Tree {
     const queue = [];
     queue.push(this.root);
 
-    while (queue.length !== 0) {
+    while (queue.length > 0) {
       const firstElement = queue.shift();
       callback(firstElement);
       if (firstElement.left) {
@@ -130,6 +130,25 @@ export class Tree {
       if (firstElement.right) {
         queue.push(firstElement.right);
       }
+    }
+  }
+
+  inOrderForEach(callback) {
+    if (!callback) throw new Error('A callback is required');
+    if (this.root === null) return;
+
+    const stack = [];
+    let current = this.root;
+
+    while (current || stack.length > 0) {
+      while (current !== null) {
+        stack.push(current);
+        current = current.left;
+      }
+
+      current = stack.pop();
+      callback(current);
+      current = current.right;
     }
   }
 
