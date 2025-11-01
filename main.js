@@ -40,3 +40,6 @@ console.log(preOrderNodes);
 const postOrderNodes = [];
 myTree.postOrderForEach(node => postOrderNodes.push(node.data));
 console.log(postOrderNodes);
+
+// Return the height of a given value
+console.log(myTree.height(1));
