@@ -152,6 +152,26 @@ export class Tree {
     }
   }
 
+  preOrderForEach(callback) {
+    if (!callback) throw new Error('A callback is required');
+    if (this.root === null) return;
+
+    const stack = [];
+    let current = this.root;
+    stack.push(current);
+
+    while (stack.length > 0) {
+      current = stack.pop();
+      callback(current);
+      if (current.right) {
+        stack.push(current.right);
+      }
+      if (current.left) {
+        stack.push(current.left);
+      }
+    }
+  }
+
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
