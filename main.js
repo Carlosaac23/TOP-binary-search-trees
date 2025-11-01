@@ -17,7 +17,6 @@ const node4 = myTree.find(4);
 myTree.prettyPrint(node4);
 
 // Testing levelOrderForEach method
-// Show every node in an array
 const levelOrderNodes = [];
 myTree.levelOrderForEach(node => levelOrderNodes.push(node.data));
 console.log(levelOrderNodes); // [ 70, 66, 95, 43, 69, 78, 96, 19, 77 ]
@@ -28,13 +27,16 @@ myTree.levelOrderForEach(node => count++);
 console.log(`Total nodes: ${count}`); // 10
 
 // Testing inOrderForEach method
-// Show every node in an array
 const inOrderNodes = [];
 myTree.inOrderForEach(node => inOrderNodes.push(node.data));
 console.log(inOrderNodes);
 
 // Testing preOrderForEach method
-// Show every node in an array
 const preOrderNodes = [];
 myTree.preOrderForEach(node => preOrderNodes.push(node.data));
 console.log(preOrderNodes);
+
+// Testing postOrderForEach method
+const postOrderNodes = [];
+myTree.postOrderForEach(node => postOrderNodes.push(node.data));
+console.log(postOrderNodes);
