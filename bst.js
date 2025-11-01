@@ -185,6 +185,33 @@ export class Tree {
     }
   }
 
+  // Return the height of the node containing the given value
+  height(value) {
+    if (!value) return null;
+
+    // Search the given node in levelOrder
+    const queue = [];
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+      if (node.data === value) {
+        return this.#getHeight(node);
+      }
+
+      // Otherwise...
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+  }
+
+  #getHeight(node) {
+    if (node === null) return -1;
+    const leftHeight = this.#getHeight(node.left);
+    const rightHeight = this.#getHeight(node.right);
+    return 1 + Math.max(leftHeight, rightHeight);
+  }
+
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
