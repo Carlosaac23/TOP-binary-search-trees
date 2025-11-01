@@ -32,3 +32,9 @@ console.log(`Total nodes: ${count}`); // 10
 const inOrderNodes = [];
 myTree.inOrderForEach(node => inOrderNodes.push(node.data));
 console.log(inOrderNodes);
+
+// Testing preOrderForEach method
+// Show every node in an array
+const preOrderNodes = [];
+myTree.preOrderForEach(node => preOrderNodes.push(node.data));
+console.log(preOrderNodes);
