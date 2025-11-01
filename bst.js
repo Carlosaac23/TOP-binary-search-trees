@@ -122,14 +122,10 @@ export class Tree {
     queue.push(this.root);
 
     while (queue.length > 0) {
-      const firstElement = queue.shift();
-      callback(firstElement);
-      if (firstElement.left) {
-        queue.push(firstElement.left);
-      }
-      if (firstElement.right) {
-        queue.push(firstElement.right);
-      }
+      const node = queue.shift();
+      callback(node);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
   }
 
@@ -138,17 +134,17 @@ export class Tree {
     if (this.root === null) return;
 
     const stack = [];
-    let current = this.root;
+    let node = this.root;
 
-    while (current || stack.length > 0) {
-      while (current !== null) {
-        stack.push(current);
-        current = current.left;
+    while (node || stack.length > 0) {
+      while (node !== null) {
+        stack.push(node);
+        node = node.left;
       }
 
-      current = stack.pop();
-      callback(current);
-      current = current.right;
+      node = stack.pop();
+      callback(node);
+      node = node.right;
     }
   }
 
@@ -157,18 +153,35 @@ export class Tree {
     if (this.root === null) return;
 
     const stack = [];
-    let current = this.root;
-    stack.push(current);
+    let node = this.root;
+    stack.push(node);
 
     while (stack.length > 0) {
-      current = stack.pop();
-      callback(current);
-      if (current.right) {
-        stack.push(current.right);
-      }
-      if (current.left) {
-        stack.push(current.left);
-      }
+      node = stack.pop();
+      callback(node);
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
+    }
+  }
+
+  postOrderForEach(callback) {
+    if (!this.root) return;
+
+    const stack1 = [];
+    const stack2 = [];
+    stack1.push(this.root);
+
+    while (stack1.length > 0) {
+      const node = stack1.pop();
+      stack2.push(node);
+
+      if (node.left) stack1.push(node.left);
+      if (node.right) stack1.push(node.right);
+    }
+
+    while (stack2.length > 0) {
+      const node = stack2.pop();
+      callback(node);
     }
   }
 
