@@ -218,10 +218,14 @@ export class Tree {
   }
 
   // Check if the tree is balanced
-  isBalanced() {}
+  isBalanced() {
+    console.log('isBalanced method :)')
+  }
 
   // Rebalances an unbalanced tree
-  rebalance() {}
+  rebalance() {
+    console.log('rebalance method :)')
+  }
 
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
