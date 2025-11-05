@@ -212,6 +212,11 @@ export class Tree {
     return 1 + Math.max(leftHeight, rightHeight);
   }
 
+  // Return the depth of the node containing the given value
+depth(value) {
+    console.log('Hey');
+  }
+
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
     if (node === null) return;
