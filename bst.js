@@ -213,9 +213,15 @@ export class Tree {
   }
 
   // Return the depth of the node containing the given value
-depth(value) {
+  depth(value) {
     console.log('Hey');
   }
+
+  // Check if the tree is balanced
+  isBalanced() {}
+
+  // Rebalances an unbalanced tree
+  rebalance() {}
 
   // Show tree in structured format
   prettyPrint(node, prefix = '', isLeft = true) {
