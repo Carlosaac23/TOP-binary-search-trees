@@ -236,18 +236,30 @@ export class Tree {
 
   // Check if the tree is balanced
   isBalanced() {
-    let root = this.root;
-    if (root === null) return true;
+    if (!this.root) throw new Error('Tree has no root.');
+    return this.#isBalancedHelper(this.root);
+  }
 
-    const leftHeight = this.height(root.left);
-    const rightHeight = this.height(root.right);
+  #isBalancedHelper(root) {
+    if (!root) return true;
+
+    let leftHeight = this.height(root.left);
+    let rightHeight = this.height(root.right);
 
     if (Math.abs(leftHeight - rightHeight) > 1) return false;
+
+    let leftIsBalanced = this.#isBalancedHelper(root.left);
+    let rightIsBalanced = this.#isBalancedHelper(root.right);
+    return leftIsBalanced && rightIsBalanced;
   }
 
   // Rebalances an unbalanced tree
   rebalance() {
-    console.log('rebalance method :)');
+    if (this.isBalanced()) return;
+
+    let array = [];
+    this.inOrderForEach(node => array.push(node.data));
+    this.root = this.buildTree(array);
   }
 
   // Show tree in structured format
