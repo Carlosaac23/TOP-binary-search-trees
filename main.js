@@ -42,4 +42,9 @@ myTree.postOrderForEach(node => postOrderNodes.push(node.data));
 console.log(postOrderNodes);
 
 // Return the height of a given value
-console.log(myTree.height(1));
+console.log(myTree.height(1)); // 0
+console.log(myTree.height(5)); // 2
+
+// Return the depth of a given value
+console.log(myTree.depth(19)); // 2
+console.log(myTree.depth(1)); // 3
