@@ -213,26 +213,6 @@ export class Tree {
   }
 
   // Return the depth of the node containing the given value
-  depth(value) {
-    if (!value) return null;
-
-    let depth = 0;
-    let node = this.root;
-
-    while (node !== null) {
-      if (value === node.data) {
-        return depth;
-      } else if (value < node.data) {
-        node = node.left;
-      } else {
-        node = node.right;
-      }
-
-      depth++;
-    }
-
-    return null; // Value not found
-  }
 
   // Check if the tree is balanced
   isBalanced() {
