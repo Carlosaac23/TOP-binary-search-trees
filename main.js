@@ -1,6 +1,6 @@
 import { Tree } from './bst.js';
 
-const numbers = [1, 5, 4, 8, 10, 15, 20, 21, 19, 17];
+const numbers = [1, 19, 5, 15, 2, 3, 4, 8, 16, 7];
 const myTree = new Tree(numbers);
 myTree.prettyPrint(myTree.root);
 
@@ -43,9 +43,12 @@ console.log(postOrderNodes);
 
 // Return the height of a given value
 console.log(myTree.height(1)); // 0
-console.log(myTree.height(5)); // 2
+console.log(myTree.height(5)); // 1
 
 // Return the depth of a given value
 console.log(myTree.depth(19)); // 2
 console.log(myTree.depth(1)); // 3
-console.log(myTree.depth(15)); // 0
+console.log(myTree.depth(15)); // 2
+
+// Checks if the tree is balanced
+console.log(myTree.isBalanced()); // true
