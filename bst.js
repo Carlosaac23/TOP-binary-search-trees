@@ -236,7 +236,13 @@ export class Tree {
 
   // Check if the tree is balanced
   isBalanced() {
-    console.log('isBalanced method :)');
+    let root = this.root;
+    if (root === null) return true;
+
+    const leftHeight = this.height(root.left);
+    const rightHeight = this.height(root.right);
+
+    if (Math.abs(leftHeight - rightHeight) > 1) return false;
   }
 
   // Rebalances an unbalanced tree
