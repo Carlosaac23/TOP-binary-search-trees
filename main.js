@@ -48,3 +48,4 @@ console.log(myTree.height(5)); // 2
 // Return the depth of a given value
 console.log(myTree.depth(19)); // 2
 console.log(myTree.depth(1)); // 3
+console.log(myTree.depth(5)); // 0
